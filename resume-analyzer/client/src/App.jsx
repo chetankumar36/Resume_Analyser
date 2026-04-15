@@ -7,7 +7,7 @@ import InputForm from './components/InputForm.jsx';
 import Result from './components/Result.jsx';
 import Contributors from './components/Contributors.jsx';
 
-const API_URL = 'http://localhost:5000/analyze';
+const API_URL = 'https://resume-analyser-38nt.onrender.com/analyze';
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);

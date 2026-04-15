@@ -67,13 +67,19 @@ Open two terminals from the project root (`resume-analyzer`).
 
 ### 1. Backend (API)
 
+The API is hosted on **Render** (production):
+- **Endpoint**: `https://resume-analyser-38nt.onrender.com/analyze`
+- **Method**: POST
+- **Content-Type**: application/json
+
+For local development:
 ```bash
 cd server
 npm install
 npm run dev
 ```
 
-The API will run on `http://localhost:5000` with a POST endpoint at `/analyze`.
+The local API will run on `http://localhost:5000` with a POST endpoint at `/analyze`.
 
 ### 2. Frontend (Client)
 
