@@ -1,6 +1,14 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-function Sidebar({ isOpen, onClose, onLogout }) {
+function Sidebar({ isOpen, onClose, onLogout, onAccountClick }) {
+  const handleNavClick = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    onClose();
+  };
+
   return (
     <>
       {isOpen && (
@@ -23,49 +31,41 @@ function Sidebar({ isOpen, onClose, onLogout }) {
         </div>
 
         <div className="space-y-1 p-4">
-          <a
-            href="#dashboard"
-            onClick={onClose}
-            className="block rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card"
+          <button
+            onClick={() => handleNavClick('home')}
+            className="block w-full text-left rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card hover:text-white"
           >
-            Dashboard
-          </a>
-          <a
-            href="#ats-score"
-            onClick={onClose}
-            className="block rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card"
+            Home
+          </button>
+          <button
+            onClick={() => handleNavClick('analyzer')}
+            className="block w-full text-left rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card hover:text-white"
           >
-            ATS Score
-          </a>
-          <a
-            href="#suggestions"
-            onClick={onClose}
-            className="block rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card"
+            Analyzer
+          </button>
+          <button
+            onClick={() => handleNavClick('features')}
+            className="block w-full text-left rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card hover:text-white"
           >
-            Suggestions
-          </a>
-          <a
-            href="#quality"
-            onClick={onClose}
-            className="block rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card"
+            Features
+          </button>
+          <button
+            onClick={() => handleNavClick('contributors')}
+            className="block w-full text-left rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card hover:text-white"
           >
-            Resume Quality
-          </a>
-          <a
-            href="#about"
-            onClick={onClose}
-            className="block rounded-lg px-4 py-2.5 text-sm text-slate-300 transition hover:bg-resumex-card"
-          >
-            About
-          </a>
+            Contributors
+          </button>
         </div>
 
-        <div className="border-t border-resumex-border p-4">
+        <div className="border-t border-resumex-border p-4 space-y-2">
           <button
-            onClick={onLogout}
-            className="w-full rounded-lg border border-resumex-border px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-resumex-card"
+            onClick={() => {
+              onAccountClick();
+              onClose();
+            }}
+            className="w-full rounded-lg border border-resumex-accent px-4 py-2 text-sm font-medium text-resumex-accent transition hover:bg-resumex-accent/10"
           >
-            Logout
+            My Account
           </button>
         </div>
       </div>
