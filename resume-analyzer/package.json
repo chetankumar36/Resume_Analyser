@@ -1,0 +1,17 @@
+{
+  "name": "resumex",
+  "version": "1.0.0",
+  "description": "AI-Powered ATS Resume Analyzer",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install-all": "npm install --prefix client && npm install --prefix server",
+    "build": "npm run build --prefix client",
+    "dev": "npm run dev --prefix client"
+  },
+  "keywords": ["resume", "ats", "analyzer"],
+  "author": "Chetan Kumar",
+  "license": "MIT"
+}
